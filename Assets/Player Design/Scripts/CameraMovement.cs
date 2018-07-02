@@ -8,6 +8,8 @@ public class CameraMovement : MonoBehaviour {
 	
 	public Transform lookAt;
 	public Transform camTransform;
+
+	public Transform turret;
 	
 	public float camHeight = 0.5f;
 	private float distance = 4.0f;
@@ -25,24 +27,17 @@ public class CameraMovement : MonoBehaviour {
 	
 	private void Update() 
 	{
-	
 		distance -= Input.GetAxis("Mouse ScrollWheel");
-		
-		if(Input.GetButton("Fire2"))
-		{
-			currentX += Input.GetAxis("Mouse X");
-			currentY -= Input.GetAxis("Mouse Y");
-			currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
-		}
-		else
-			currentX += Input.GetAxis("Mouse X") * sensitiveX;
-
+		currentX += Input.GetAxis("Mouse X") * sensitiveX;
+		currentY -= Input.GetAxis("Mouse Y");
+		currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 	}
 	
 	private void LateUpdate()
 	{
 		Vector3 dir = new Vector3(0, camHeight, -distance);
 		Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
+		turret.rotation = Quaternion.Euler(Mathf.Clamp(currentY, -10, 25), currentX, 0) * Quaternion.Euler(0, 180, 0);
 		//print(transform.eulerAngles.y);
 		camTransform.position = lookAt.position + rotation * dir;
 		camTransform.LookAt(lookAt.position);
