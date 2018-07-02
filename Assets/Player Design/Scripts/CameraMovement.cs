@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour {
 	
-	private const float Y_ANGLE_MIN = -60.0f;
+	private const float Y_ANGLE_MIN = -100.0f;
 	private const float Y_ANGLE_MAX = 70.0f;
 	
 	public Transform lookAt;
