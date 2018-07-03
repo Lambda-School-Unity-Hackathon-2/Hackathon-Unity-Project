@@ -6,11 +6,18 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
     public GameObject[] waypoints;
+    public GameObject missiles;
 		public Transform player;
 		public int startingHealth = 100;
 		private int currentHealth;
     private int waypointIndex;
     private NavMeshAgent agent;
+
+    public GameObject misslePrefab;
+    public Transform missleSpawn;
+    public float missleSpeed = 40f;
+    private float nextTimeToFireMissle = 0f;
+    public float missleFireRate = 1f;
 
 
     void Start () {
@@ -32,16 +39,42 @@ public class EnemyController : MonoBehaviour {
     void Update () {
 			if(currentHealth <= 0){
 				carDeath();
-			}
-			if(Vector3.Distance(transform.position, player.position) > 40){
-        if (!agent.pathPending && agent.remainingDistance < 1.0f)
-            GotoNextPoint();
 			} else {
-				agent.destination = player.position;
-			}
+  			if(Vector3.Distance(transform.position, player.position) > 40){
+          if (!agent.pathPending && agent.remainingDistance < 1.0f)
+              GotoNextPoint();
+  			} else {
+    				agent.destination = player.position;
+            if (Time.time >= nextTimeToFireMissle) {
+                nextTimeToFireMissle = Time.time + 1f / missleFireRate;
+                Launch();
+            }
+  			 }
+      }
 		}
 
 		void carDeath() {
 			gameObject.SetActive(false);
 		}
+
+    void OnCollisionEnter(Collision col) {
+      if (col.gameObject.name == "Missile(Clone)") {
+        currentHealth -= 20;
+      }
+    }
+
+    void Launch()
+    {
+        // Create the missle from the missle Prefab
+        var missle = (GameObject)Instantiate(
+            misslePrefab,
+            missleSpawn.position,
+            missleSpawn.rotation);
+
+        // Add velocity to the missle
+        missle.GetComponent<Rigidbody>().velocity = missle.transform.forward * missleSpeed;
+
+        // Destroy the missle after 2 seconds
+        Destroy(missle, 2.0f);
+    }
 }
