@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4500913, g: 0.5001379, b: 0.5754687, a: 1}
+  m_IndirectSpecularColor: {r: 0.45009106, g: 0.50013804, b: 0.5754688, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -146,6 +146,7 @@ Transform:
   - {fileID: 160330831}
   - {fileID: 1110448736}
   - {fileID: 1675649054}
+  - {fileID: 415711225}
   m_Father: {fileID: 1026646486}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
@@ -1360,6 +1361,34 @@ WheelCollider:
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
   m_Enabled: 1
+--- !u!1 &415711224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 415711225}
+  m_Layer: 0
+  m_Name: Grenade Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415711225
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415711224}
+  m_LocalRotation: {x: -0.0000011290786, y: -0.92387986, z: -0.38268277, w: 0.0000027258423}
+  m_LocalPosition: {x: 0, y: 1.2551609, z: 1.0307947}
+  m_LocalScale: {x: 0.38820043, y: 0.77340305, z: 0.7734005}
+  m_Children: []
+  m_Father: {fileID: 7930129}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -45.000004, y: 0, z: 0}
 --- !u!4 &426537965
 Transform:
   m_ObjectHideFlags: 0
@@ -3636,7 +3665,6 @@ GameObject:
   - component: {fileID: 1555028056}
   - component: {fileID: 1555028055}
   - component: {fileID: 1555028059}
-  - component: {fileID: 1555028060}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3724,21 +3752,6 @@ MonoBehaviour:
   camHeight: 19
   distanceZoom: 8
   currentY: -65
---- !u!114 &1555028060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1555028054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74470aadc9c19b94ea94d1a68d7343fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  range: 100
-  playerCam: {fileID: 1555028057}
-  bulletOrigin: {fileID: 1675649053}
 --- !u!1 &1601003325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,7 +4160,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1782131716}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.000000014901161, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4173,6 +4186,11 @@ MonoBehaviour:
   missleSpawn: {fileID: 1677894003}
   missleSpeed: 80
   missleFireRate: 1
+  grenadePrefab: {fileID: 1980656661415208, guid: ab6400736503b474e818a2b93476b7b6,
+    type: 2}
+  grenadeSpawn: {fileID: 415711225}
+  grenadeSpeed: 35
+  grenadeFireRate: 1
   muzzleFlash: {fileID: 1110448738}
   impactEffect: {fileID: 1590574751254156, guid: f35536b412e75e14590a0eef631917b5,
     type: 2}
