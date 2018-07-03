@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     public AudioClip grenadeLauncher;
 
     public Camera playerCam;
-    public GameObject misslePrefab;
-    public Transform missleSpawn;
-    public float missleSpeed = 40f;
-    private float nextTimeToFireMissle = 0f;
-    public float missleFireRate = 1f;
+    public GameObject missilePrefab;
+    public Transform missileSpawn;
+    public float missileSpeed = 40f;
+    private float nextTimeToFireMissile = 0f;
+    public float missileFireRate = 1f;
 
     public GameObject grenadePrefab;
     public Transform grenadeSpawn;
@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFireMissle) {
-            nextTimeToFireMissle = Time.time + 1f / missleFireRate;
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFireMissile) {
+            nextTimeToFireMissile = Time.time + 1f / missileFireRate;
             Launch();
         }
         if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
@@ -53,22 +53,22 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        // Create the missle from the missle Prefab
-        var missle = (GameObject)Instantiate(
-            misslePrefab,
-            missleSpawn.position,
-            missleSpawn.rotation);
+        // Create the missile from the missile Prefab
+        var missile = (GameObject)Instantiate(
+            missilePrefab,
+            missileSpawn.position,
+            missileSpawn.rotation);
 
-        // Add velocity to the missle
-        missle.GetComponent<Rigidbody>().velocity = missle.transform.forward * missleSpeed;
+        // Add velocity to the missile
+        missile.GetComponent<Rigidbody>().velocity = missile.transform.forward * missileSpeed;
 
-        // Destroy the missle after 2 seconds
-        Destroy(missle, 2.0f);
+        // Destroy the missile after 4 seconds
+        Destroy(missile, 4.0f);
     }
     void GrenadeLaunch()
     {
-        source.PlayOneShot(GrenadeLaunch);
-        // Create the missle from the missle Prefab
+        source.PlayOneShot(grenadeLauncher);
+        // Create the missile from the missile Prefab
         var grenade = (GameObject)Instantiate(
             grenadePrefab,
             grenadeSpawn.position,
@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
         // Add velocity to the grenade
         grenade.GetComponent<Rigidbody>().velocity = grenade.transform.forward * grenadeSpeed;
 
-        // Destroy the grenade after 2 seconds
-        Destroy(grenade, 5.0f);
+        // Destroy the grenade after 4 seconds
+        Destroy(grenade, 4.0f);
     }
 
     void Fire() {
