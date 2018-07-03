@@ -6,7 +6,6 @@ public class FriendlyFire : MonoBehaviour
 
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
         Physics.IgnoreLayerCollision(10, 9);
     }
 }

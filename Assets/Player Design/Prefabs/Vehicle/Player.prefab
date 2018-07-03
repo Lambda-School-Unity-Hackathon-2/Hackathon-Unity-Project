@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4135361969622972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CamTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4438191855713194}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4696400010115464}
   - component: {fileID: 146916728930970008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4063132832783220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Missle Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4530712581722768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CenterOfMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4170772132890214}
   - component: {fileID: 198912045175296024}
   - component: {fileID: 199644949715191440}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4273631193931680}
   - component: {fileID: 146152671445519170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4709866373445192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4243126020226190}
   - component: {fileID: 146768142869031516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4134284900752146}
   - component: {fileID: 33839852905649468}
   - component: {fileID: 23522378686109140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4967113251970172}
   - component: {fileID: 114541041790060744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4670341144495702}
   - component: {fileID: 146751389666193548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518667700837628}
   - component: {fileID: 108498012873976466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4065410628182162}
   - component: {fileID: 33025168801273206}
   - component: {fileID: 23650766642374924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 4486674274215028}
   - component: {fileID: 33200329999423266}
   - component: {fileID: 23253365736451028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 33149464994740636}
   - component: {fileID: 23863786015362526}
   - component: {fileID: 136767623099743274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4375200562990136}
   - component: {fileID: 65667612997293272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 4375067874884892}
   - component: {fileID: 198654119477038790}
   - component: {fileID: 199422595854657040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MuzzleFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4125834101921626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4590368258070246}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,9 +341,9 @@ GameObject:
   - component: {fileID: 4934707851400778}
   - component: {fileID: 54131518624048246}
   - component: {fileID: 114641489525194628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vehicle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 4929622582472918}
   - component: {fileID: 33959340604325890}
   - component: {fileID: 23022878681827090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459132463849590}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -20}
+  m_LocalPosition: {x: 22.6, y: 1, z: -76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4934707851400778}
@@ -956,19 +956,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc18bd0bbccbc544afdc51b7d9b91cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactEffect: {fileID: 1590574751254156, guid: f35536b412e75e14590a0eef631917b5,
-    type: 2}
-  muzzleFlash: {fileID: 198683977429841598, guid: 1de64c1f9affbff47943456f8b0a3fc8,
-    type: 2}
+  playerCam: {fileID: 0}
   misslePrefab: {fileID: 1513023278943614, guid: 2ced9b26cf16e8e4a894e7e86a469970,
     type: 2}
   missleSpawn: {fileID: 4063132832783220}
   missleSpeed: 40
-  playerCam: {fileID: 0}
+  missleFireRate: 1
+  muzzleFlash: {fileID: 0}
+  impactEffect: {fileID: 1590574751254156, guid: f35536b412e75e14590a0eef631917b5,
+    type: 2}
   shotOrigin: {fileID: 4438191855713194}
   range: 100
-  fireRate: 15
   impactForce: 10000
+  gunFireRate: 5
 --- !u!114 &114641489525194628
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject[] waypoints;
     public GameObject missiles;
-		public Transform player;
+		private GameObject player;
 		public int startingHealth = 100;
 		private int currentHealth;
     private int waypointIndex;
@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour {
 				currentHealth = startingHealth;
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
         waypointIndex = Random.Range(0, waypoints.Length);
+        player = GameObject.FindWithTag("Player");
         GotoNextPoint();
     }
 
@@ -40,11 +41,11 @@ public class EnemyController : MonoBehaviour {
 			if(currentHealth <= 0){
 				carDeath();
 			} else {
-  			if(Vector3.Distance(transform.position, player.position) > 40){
+  			if(Vector3.Distance(transform.position, player.transform.position) > 40){
           if (!agent.pathPending && agent.remainingDistance < 1.0f)
               GotoNextPoint();
   			} else {
-    				agent.destination = player.position;
+    				agent.destination = player.transform.position;
             if (Time.time >= nextTimeToFireMissle) {
                 nextTimeToFireMissle = Time.time + 1f / missleFireRate;
                 Launch();
@@ -54,12 +55,12 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		void carDeath() {
-			gameObject.SetActive(false);
+			Destroy(gameObject);
 		}
 
     void OnCollisionEnter(Collision col) {
       if (col.gameObject.name == "Missile(Clone)") {
-        currentHealth -= 20;
+        currentHealth -= 50;
       }
     }
 

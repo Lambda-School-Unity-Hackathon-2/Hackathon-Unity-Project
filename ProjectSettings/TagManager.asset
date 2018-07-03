@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Waypoint
   - Fire
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
