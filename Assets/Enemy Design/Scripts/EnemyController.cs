@@ -5,11 +5,11 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour {
 
-    public Transform[] points;
+    public GameObject[] waypoints;
 		public Transform player;
 		public int startingHealth = 100;
 		private int currentHealth;
-    private int destPoint = 0;
+    private int waypointIndex;
     private NavMeshAgent agent;
 
 
@@ -17,17 +17,15 @@ public class EnemyController : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
 				currentHealth = startingHealth;
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        waypointIndex = Random.Range(0, waypoints.Length);
         GotoNextPoint();
     }
 
 
     void GotoNextPoint() {
-        if (points.Length == 0)
-            return;
-
-        agent.destination = points[destPoint].position;
-
-        destPoint = (destPoint + 1) % points.Length;
+        waypointIndex = Random.Range(0, waypoints.Length);
+        agent.destination = waypoints[waypointIndex].transform.position;
     }
 
 
@@ -36,7 +34,7 @@ public class EnemyController : MonoBehaviour {
 				carDeath();
 			}
 			if(Vector3.Distance(transform.position, player.position) > 40){
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 1.0f)
             GotoNextPoint();
 			} else {
 				agent.destination = player.position;
