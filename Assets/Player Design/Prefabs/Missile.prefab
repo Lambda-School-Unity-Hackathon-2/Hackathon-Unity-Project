@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23898304155364928}
   - component: {fileID: 135632946157136366}
   - component: {fileID: 54055279434673570}
-  - component: {fileID: 114035135935252364}
+  - component: {fileID: 114296142315487756}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -101,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114035135935252364
+--- !u!114 &114296142315487756
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,12 +109,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1513023278943614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70aecbe71c8083c448f473d6d16aaf71, type: 3}
+  m_Script: {fileID: 11500000, guid: b0dbae3016cb6c347a57d345c2fe897c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 25
+  radius: 50
   power: 25000
-  explosionPrefab: {fileID: 1247753541975132, guid: b5c9a5b74ab0bbd49b2520b7027061ff,
+  explosionPrefab: {fileID: 1362364599392412, guid: 3418298eec064ba4db0279305be9c48d,
     type: 2}
 --- !u!135 &135632946157136366
 SphereCollider:
