@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public float grenadeSpeed = 20f;
     private float nextTimeToFireGrenade = 0f;
     public float grenadeFireRate = 1f;
+    public int grenadeAmmo = 5;
+    bool reloading = false;
 
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -36,18 +38,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFireMissile) {
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFireMissile) {
             nextTimeToFireMissile = Time.time + 1f / missileFireRate;
             Launch();
         }
-        if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
+        if (Input.GetKey(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
             nextTimeToFireGrenade = Time.time + 1f / grenadeFireRate;
+            if (grenadeAmmo > 0) {
             GrenadeLaunch();
+            grenadeAmmo--;
+            }
+            if (reloading == false) {
+                reloading = true;
+                Invoke("Reload", 2);  
+            }
         }
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFireBullet) {
             nextTimeToFireBullet = Time.time + 1f / gunFireRate;
             Fire();
         }
+    }
+
+    void Reload() {
+        grenadeAmmo = 5;
+        reloading = false;
     }
 
 
@@ -77,8 +91,8 @@ public class PlayerController : MonoBehaviour
         // Add velocity to the grenade
         grenade.GetComponent<Rigidbody>().velocity = grenade.transform.forward * grenadeSpeed;
 
-        // Destroy the grenade after 4 seconds
-        Destroy(grenade, 4.0f);
+        // Destroy the grenade after 5 seconds
+        Destroy(grenade, 2.1f);
     }
 
     void Fire() {
