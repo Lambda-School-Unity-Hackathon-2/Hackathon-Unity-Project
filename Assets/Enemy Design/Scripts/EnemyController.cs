@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour {
 		private int currentHealth;
     private int waypointIndex;
     private NavMeshAgent agent;
+    public float chaseDist = 40.0f;
+    public float fireDist = 30.0f;
 
     public GameObject misslePrefab;
     public Transform missleSpawn;
@@ -41,12 +43,13 @@ public class EnemyController : MonoBehaviour {
 			if(currentHealth <= 0){
 				carDeath();
 			} else {
-  			if(Vector3.Distance(transform.position, player.transform.position) > 40){
+        float playerDist = Vector3.Distance(transform.position, player.transform.position);
+  			if(playerDist > chaseDist){
           if (!agent.pathPending && agent.remainingDistance < 1.0f)
               GotoNextPoint();
   			} else {
     				agent.destination = player.transform.position;
-            if (Time.time >= nextTimeToFireMissle) {
+            if (Time.time >= nextTimeToFireMissle && playerDist < fireDist) {
                 nextTimeToFireMissle = Time.time + 1f / missleFireRate;
                 Launch();
             }
