@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4918212607509608}
   m_Layer: 9
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1129,7 +1129,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   missiles: {fileID: 1513023278943614, guid: f7391250ee1f04d80acf7c69148faabc, type: 2}
-  player: {fileID: 0}
   startingHealth: 100
   misslePrefab: {fileID: 1513023278943614, guid: f7391250ee1f04d80acf7c69148faabc,
     type: 2}

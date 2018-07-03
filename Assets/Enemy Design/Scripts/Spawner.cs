@@ -11,13 +11,10 @@ public class Spawner : MonoBehaviour {
 	[SerializeField]
 	private GameObject enemies;
 	public static int enemyCount = 0;
-	public int maxEnemies = 10;
+	public int maxEnemies = 7;
 
 	// Use this for initialization
 	void Start () {
-		if (respawns == null)
-				respawns = GameObject.FindGameObjectsWithTag("Respawn");
-
 		spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
 
 		foreach (GameObject spawnPoint in spawnPoints)
@@ -34,7 +31,7 @@ public class Spawner : MonoBehaviour {
 
 	private IEnumerator Spawn() {
 		respawns = GameObject.FindGameObjectsWithTag("Enemy");
-		Debug.Log("there are " + respawns.Length + "enemies");
+		Debug.Log("there are " + respawns.Length + " enemies");
 		if(respawns.Length < maxEnemies) {
 				Debug.Log(respawns.Length);
 				yield return new WaitForSeconds(5);
