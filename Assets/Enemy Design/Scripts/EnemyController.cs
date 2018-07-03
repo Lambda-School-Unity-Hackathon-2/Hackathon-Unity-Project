@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		void carDeath() {
-			Destroy(gameObject);
+			Destroy(transform.parent.gameObject);
 		}
 
     void OnCollisionEnter(Collision col) {

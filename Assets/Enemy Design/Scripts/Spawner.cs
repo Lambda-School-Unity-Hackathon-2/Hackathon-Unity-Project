@@ -12,33 +12,44 @@ public class Spawner : MonoBehaviour {
 	private GameObject enemies;
 	public static int enemyCount = 0;
 	public int maxEnemies = 7;
+	private float	nextTimeToSpawn = 0f;
+	private float spawnRate = 1f;
+	private int randomNumber;
 
 	// Use this for initialization
 	void Start () {
 		spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+		respawns = GameObject.FindGameObjectsWithTag("Enemy");
 
 		foreach (GameObject spawnPoint in spawnPoints)
 		{
 				Instantiate(enemiesPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
 		}
-		StartCoroutine(Spawn());
+		Spawn();
 
 	}
 
-	// void LateUpdate() {
-	// 	StartCoroutine(Spawn());
-	// }
-
-	private IEnumerator Spawn() {
+	void Update() {
 		respawns = GameObject.FindGameObjectsWithTag("Enemy");
-		Debug.Log("there are " + respawns.Length + " enemies");
-		if(respawns.Length < maxEnemies) {
-				Debug.Log(respawns.Length);
-				yield return new WaitForSeconds(5);
-				int randomNumber = Random.Range(0, spawnPoints.Length);
-				Instantiate(enemies, spawnPoints[randomNumber].transform.position, spawnPoints[randomNumber].transform.rotation);
+		// Debug.Log("Update: there are " + respawns.Length + " enemies");
+		if (respawns.Length <= maxEnemies) {
+			if (Time.time >= nextTimeToSpawn) {
+					nextTimeToSpawn = Time.time + 5f / spawnRate;
+					Spawn();
+			}
 		}
-		StartCoroutine(Spawn());
+	}
 
+	private void Spawn() {
+		respawns = GameObject.FindGameObjectsWithTag("Enemy");
+		randomNumber = Random.Range(0, spawnPoints.Length);
+		// Debug.Log("there are " + respawns.Length + " enemies");
+		if(respawns.Length < maxEnemies) {
+				// Debug.Log(respawns.Length);
+				// yield return new WaitForSeconds(1);
+				Instantiate(enemies, spawnPoints[randomNumber].transform.position, spawnPoints[randomNumber].transform.rotation);
+
+				Spawn();
+		}
 	}
 }

@@ -12,7 +12,7 @@ public class Missle : MonoBehaviour {
 	{
 		Vector3 explosionPos = collision.transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-		Debug.Log(gameObject.name + " hits " + collision.gameObject.name, collision.gameObject);
+		// Debug.Log(gameObject.name + " hits " + collision.gameObject.name, collision.gameObject);
 
 		foreach (Collider hit in colliders)
 		{
