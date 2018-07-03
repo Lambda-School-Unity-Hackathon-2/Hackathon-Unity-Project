@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour {
 
+    private AudioSource source;
     public float radius = 50.0F;
     public float power = 25000.0F;
     public GameObject explosionPrefab;
+
+    private void Awake() {
+        source = GetComponent<AudioSource>();
+        source.PlayOneShot(missile);
+    }
 
     void OnCollisionEnter(Collision collision)
     {

@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private AudioSource source;
+    public AudioClip machineGun;
+    public AudioClip grenadeLauncher;
+
     public Camera playerCam;
     public GameObject misslePrefab;
     public Transform missleSpawn;
@@ -25,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public float impactForce = 30f;
     private float nextTimeToFireBullet = 0f;
     public float gunFireRate = 5f;
+
+    void Awake () {
+		source = GetComponent<AudioSource>();
+	}
 
     void Update()
     {
@@ -59,6 +67,7 @@ public class PlayerController : MonoBehaviour
     }
     void GrenadeLaunch()
     {
+        source.PlayOneShot(GrenadeLaunch);
         // Create the missle from the missle Prefab
         var grenade = (GameObject)Instantiate(
             grenadePrefab,
@@ -73,6 +82,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Fire() {
+        source.PlayOneShot(machineGun);
         // play particle effect
         muzzleFlash.Stop();
         muzzleFlash.Play();
