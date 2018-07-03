@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45009106, g: 0.50013804, b: 0.5754688, a: 1}
+  m_IndirectSpecularColor: {r: 0.4500913, g: 0.5001379, b: 0.5754687, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1023,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: {fileID: 284653302}
   camTransform: {fileID: 284653302}
+  turret: {fileID: 0}
   camHeight: 15
   distanceZoom: 8
   currentY: -55
@@ -1097,7 +1098,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4185637190615514, guid: 2890942849d715045823892f01fc26a9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.59
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 4185637190615514, guid: 2890942849d715045823892f01fc26a9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1186,7 +1187,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc18bd0bbccbc544afdc51b7d9b91cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCam: {fileID: 0}
   misslePrefab: {fileID: 1513023278943614, guid: 2ced9b26cf16e8e4a894e7e86a469970,
     type: 2}
   missleSpawn: {fileID: 1314037672}
   missleSpeed: 100
+  missleFireRate: 1
+  muzzleFlash: {fileID: 0}
+  impactEffect: {fileID: 0}
+  shotOrigin: {fileID: 0}
+  range: 100
+  impactForce: 30
+  gunFireRate: 5

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PhysicsTank : MonoBehaviour
+public class PlayerPhysicsTank : MonoBehaviour
 {
    [Tooltip("Top speed of the tank in m/s.")]
    public float topSpeed = 10.0f;
