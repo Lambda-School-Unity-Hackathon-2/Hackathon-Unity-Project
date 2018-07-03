@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private AudioSource source;
+    public AudioClip machineGun;
+    public AudioClip grenadeLauncher;
+
     public Camera playerCam;
-    public GameObject misslePrefab;
-    public Transform missleSpawn;
-    public float missleSpeed = 40f;
-    private float nextTimeToFireMissle = 0f;
-    public float missleFireRate = 1f;
+    public GameObject missilePrefab;
+    public Transform missileSpawn;
+    public float missileSpeed = 40f;
+    private float nextTimeToFireMissile = 0f;
+    public float missileFireRate = 1f;
 
 <<<<<<< HEAD
     public GameObject grenadePrefab;
@@ -18,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public float grenadeSpeed = 20f;
     private float nextTimeToFireGrenade = 0f;
     public float grenadeFireRate = 1f;
+    public int grenadeAmmo = 5;
+    bool reloading = false;
 
 =======
 >>>>>>> enemyToo
@@ -29,16 +35,31 @@ public class PlayerController : MonoBehaviour
     private float nextTimeToFireBullet = 0f;
     public float gunFireRate = 5f;
 
+    void Awake () {
+		source = GetComponent<AudioSource>();
+	}
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFireMissle) {
-            nextTimeToFireMissle = Time.time + 1f / missleFireRate;
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFireMissile) {
+            nextTimeToFireMissile = Time.time + 1f / missileFireRate;
             Launch();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
+=======
+        if (Input.GetKey(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
+>>>>>>> player
             nextTimeToFireGrenade = Time.time + 1f / grenadeFireRate;
+            if (grenadeAmmo > 0) {
             GrenadeLaunch();
+            grenadeAmmo--;
+            }
+            if (reloading == false) {
+                reloading = true;
+                Invoke("Reload", 2);  
+            }
         }
 =======
 >>>>>>> enemyToo
@@ -48,25 +69,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Reload() {
+        grenadeAmmo = 5;
+        reloading = false;
+    }
+
 
     void Launch()
     {
-        // Create the missle from the missle Prefab
-        var missle = (GameObject)Instantiate(
-            misslePrefab,
-            missleSpawn.position,
-            missleSpawn.rotation);
+        // Create the missile from the missile Prefab
+        var missile = (GameObject)Instantiate(
+            missilePrefab,
+            missileSpawn.position,
+            missileSpawn.rotation);
 
-        // Add velocity to the missle
-        missle.GetComponent<Rigidbody>().velocity = missle.transform.forward * missleSpeed;
+        // Add velocity to the missile
+        missile.GetComponent<Rigidbody>().velocity = missile.transform.forward * missileSpeed;
 
-        // Destroy the missle after 2 seconds
-        Destroy(missle, 2.0f);
+        // Destroy the missile after 4 seconds
+        Destroy(missile, 4.0f);
     }
 <<<<<<< HEAD
     void GrenadeLaunch()
     {
-        // Create the missle from the missle Prefab
+        source.PlayOneShot(grenadeLauncher);
+        // Create the missile from the missile Prefab
         var grenade = (GameObject)Instantiate(
             grenadePrefab,
             grenadeSpawn.position,
@@ -75,13 +102,14 @@ public class PlayerController : MonoBehaviour
         // Add velocity to the grenade
         grenade.GetComponent<Rigidbody>().velocity = grenade.transform.forward * grenadeSpeed;
 
-        // Destroy the grenade after 2 seconds
-        Destroy(grenade, 5.0f);
+        // Destroy the grenade after 5 seconds
+        Destroy(grenade, 2.1f);
     }
 =======
 >>>>>>> enemyToo
 
     void Fire() {
+        source.PlayOneShot(machineGun);
         // play particle effect
         muzzleFlash.Stop();
         muzzleFlash.Play();
