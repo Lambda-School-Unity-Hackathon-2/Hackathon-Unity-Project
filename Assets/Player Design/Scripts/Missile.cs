@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour {
 
-    private AudioSource source;
-    public AudioClip missile;
-    public AudioClip explosion;
     public float radius = 50.0F;
     public float power = 25000.0F;
     public GameObject explosionPrefab;
 
-    private void Awake() {
-        source = GetComponent<AudioSource>();
-    }
-
-    private void Start() {
-        source.PlayOneShot(missile);
-    }
-
     void OnCollisionEnter(Collision collision)
     {
-        source.PlayOneShot(explosion);
         Vector3 explosionPos = collision.transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)
@@ -33,9 +21,10 @@ public class Missile : MonoBehaviour {
             if (rb != null)
             {
                 rb.AddExplosionForce(power, explosionPos, radius, 30.0F);
+                // hit.GetComponent< EnemyController >().currentHealth -= 50;
             }
         }
-        GameObject explosionGO = Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
-        Destroy(explosionGO, 5f);
+        Instantiate(explosionPrefab, collision.transform.position, collision.transform.rotation);
+        Destroy(gameObject);
     }
 }

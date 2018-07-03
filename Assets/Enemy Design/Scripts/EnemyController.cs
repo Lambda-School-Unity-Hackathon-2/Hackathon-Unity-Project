@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject missiles;
 		private GameObject player;
 		public int startingHealth = 100;
-		private int currentHealth;
+		public int currentHealth;
     private int waypointIndex;
     private NavMeshAgent agent;
     public float chaseDist = 40.0f;
@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
     public float missleSpeed = 40f;
     private float nextTimeToFireMissle = 0f;
     public float missleFireRate = 1f;
-
+    public GameObject explosionPrefab;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -58,12 +58,17 @@ public class EnemyController : MonoBehaviour {
 		}
 
 		void carDeath() {
+            GameObject explosionGO = Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
 			Destroy(transform.parent.gameObject);
+            Destroy(explosionGO, 5f);
 		}
 
     void OnCollisionEnter(Collision col) {
       if (col.gameObject.name == "Missile(Clone)") {
         currentHealth -= 50;
+      }
+      if (col.gameObject.name == "Grenade(Clone)") {
+        currentHealth -= 30;
       }
     }
 

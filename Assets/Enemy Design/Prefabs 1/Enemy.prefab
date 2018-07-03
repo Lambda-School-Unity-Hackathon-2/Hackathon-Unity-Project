@@ -1130,9 +1130,11 @@ MonoBehaviour:
   - {fileID: 0}
   missiles: {fileID: 1513023278943614, guid: f7391250ee1f04d80acf7c69148faabc, type: 2}
   startingHealth: 100
+  chaseDist: 40
+  fireDist: 30
   misslePrefab: {fileID: 1513023278943614, guid: f7391250ee1f04d80acf7c69148faabc,
     type: 2}
-  missleSpawn: {fileID: 4301831115843596}
+  missleSpawn: {fileID: 0}
   missleSpeed: 40
   missleFireRate: 1
 --- !u!114 &114583136715921584

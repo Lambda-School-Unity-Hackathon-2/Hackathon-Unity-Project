@@ -23,6 +23,7 @@ public class Grenade : MonoBehaviour {
             if (rb != null)
             {
                 rb.AddExplosionForce(power, explosionPos, radius, 30.0F);
+                // hit.GetComponent< EnemyController >().currentHealth -= 30;
             }
         }
         GameObject explosionGO = Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
