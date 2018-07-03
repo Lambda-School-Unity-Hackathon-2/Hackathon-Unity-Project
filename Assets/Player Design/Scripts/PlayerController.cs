@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     private float nextTimeToFireMissle = 0f;
     public float missleFireRate = 1f;
 
+    public GameObject grenadePrefab;
+    public Transform grenadeSpawn;
+    public float grenadeSpeed = 20f;
+    private float nextTimeToFireGrenade = 0f;
+    public float grenadeFireRate = 1f;
+
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     public Transform shotOrigin;
@@ -25,6 +31,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextTimeToFireMissle) {
             nextTimeToFireMissle = Time.time + 1f / missleFireRate;
             Launch();
+        }
+        if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextTimeToFireGrenade) {
+            nextTimeToFireGrenade = Time.time + 1f / grenadeFireRate;
+            GrenadeLaunch();
         }
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFireBullet) {
             nextTimeToFireBullet = Time.time + 1f / gunFireRate;
@@ -46,6 +56,20 @@ public class PlayerController : MonoBehaviour
 
         // Destroy the missle after 2 seconds
         Destroy(missle, 2.0f);
+    }
+    void GrenadeLaunch()
+    {
+        // Create the missle from the missle Prefab
+        var grenade = (GameObject)Instantiate(
+            grenadePrefab,
+            grenadeSpawn.position,
+            grenadeSpawn.rotation);
+
+        // Add velocity to the grenade
+        grenade.GetComponent<Rigidbody>().velocity = grenade.transform.forward * grenadeSpeed;
+
+        // Destroy the grenade after 2 seconds
+        Destroy(grenade, 5.0f);
     }
 
     void Fire() {
